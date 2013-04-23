@@ -20,78 +20,91 @@
     <!-- #content Starts -->
 	<?php woo_content_before(); ?>
     <div id="content" class="col-full magazine">
-    
     	<div id="main-sidebar-container">
-
-            <!-- #main Starts -->
+        <div class="row">
+          <div class="column">
+            <hr>
             <?php woo_main_before(); ?>
-            <div id="main">
-            	<?php woo_loop_before(); ?>   
-             	<?php if ( $woo_options['woo_slider_magazine'] == 'true' && ! $is_paged ) { if ( get_option( 'woo_exclude' ) ) update_option( 'woo_exclude', '' ); woo_slider_magazine(); } ?>
-             	<div class="fix"></div>
-                    <div class="fabrication">  
-                <h2>Fabrication</h2>  
-                    <?php 
-                    rewind_posts();
-                    $mypost = array( 'post_type' => 'fabrication' );
-                    $my_query = new WP_Query( $mypost ); ?>
+            <hr>
+          </div>
+        </div>
+  <div id="main">
+      <div class="fabrication row thumb-wraps">  
+        <div class="column large-3">
+          <h2 class="subheader">Fabrication</h2>
 
-                    <?php if ( have_posts() ) : ?>
+          <p>A Quick view of our most up-to-date projects.</p>
+        </div>
+        <?php 
+        rewind_posts();
+        $mypost = array( 'showposts' => 3, 'post_type' => 'fabrication' );
+        $my_query = new WP_Query( $mypost ); ?>
 
-                    <?php /* Start the Loop */ ?>
-                    <?php while ( $my_query->have_posts()) :  $my_query->the_post(); ?>
+        <?php if ( have_posts() ) : ?>
 
-                    <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-                        <a href="<?php the_permalink(); ?>">
-                        <div class="large-4 column" style=""><?php the_post_thumbnail(); ?></div>
-                        </a>
-                    </div>
-                    
-                    <?php endwhile; ?>
+        <?php /* Start the Loop */ ?>
+        <?php while ( $my_query->have_posts()) :  $my_query->the_post(); ?>
 
-                    <?php else : ?>
-                    <?php get_template_part( 'content', 'none' ); ?>
+        <div class="large-3 column thumb-display" <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+            <a href="<?php the_permalink(); ?>">
+              <div class="thumbnail-height-limit">
+                <?php the_post_thumbnail( 'small'); ?>
+              </div>
+              <h3 class=" entry-title"><?php the_title(); ?></h3>
+            </a>
+        </div>
+        
+        <?php endwhile; ?>
 
-                    <?php endif; // end have_posts() check 
-                    wp_reset_query();?>
-                    </div>
-                    
-                    <div class="fix"></div>
-                    
-                    <div class="design">
-                        <h2>Design</h2> 
-                        <?php 
-                    rewind_posts();
-                    $mypost = array( 'post_type' => 'design' );
-                    $my_query = new WP_Query( $mypost ); ?>
+        <?php else : ?>
+        <?php get_template_part( 'content', 'none' ); ?>
 
-                    <?php if ( have_posts() ) : ?>
+        <?php endif; // end have_posts() check 
+        wp_reset_query();?>
+        </div>
+        <hr>
+        <div class="design row thumb-wraps ">
+        <div class="column large-3">
+          <h2 class="subheader">Design</h2> 
+          <p>A Quick view of our most up-to-date projects.</p>
+        </div>
+        <?php 
+        rewind_posts();
+        $mypost = array( 'showposts' => 3, 'post_type' => 'design' );
+        $my_query = new WP_Query( $mypost ); ?>
 
-                    <?php /* Start the Loop */ ?>
-                    <?php while ( $my_query->have_posts()) :  $my_query->the_post(); ?>
+        <?php if ( have_posts() ) : ?>
 
-                    <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-                        <a href="<?php the_permalink(); ?>">
-                        <div class="large-4 column" style=""><?php the_post_thumbnail( 'small'); ?></div>
-                        </a>
-                    </div>
-                    
-                    <?php endwhile; ?>
+        <?php /* Start the Loop */ ?>
+        <?php while ( $my_query->have_posts()) :  $my_query->the_post(); ?>
 
-                    <?php else : ?>
-                    <?php get_template_part( 'content', 'none' ); ?>
+        <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+            <a href="<?php the_permalink(); ?>">
+            <div class="large-3 column thumb-display">
+              <div class="thumbnail-height-limit">
+                <?php the_post_thumbnail( 'small'); ?>
+              </div>
+            <h3 class=" entry-title"><?php the_title(); ?></h3>
+            </div>
+            </a>
+        </div>
+        
+        <?php endwhile; ?>
 
-                    <?php endif; // end have_posts() check 
-                    wp_reset_query();?>
-                    </div>
-            </div><!-- /#main -->
-            <?php woo_main_after(); ?>
-    
-            <?php // get_sidebar(); ?>
+        <?php else : ?>
+        <?php get_template_part( 'content', 'none' ); ?>
+
+        <?php endif; // end have_posts() check 
+        wp_reset_query();?>
+        </div>
+      </div><!-- /#main -->
+      <?php woo_main_after(); ?>
+
+      <?php // get_sidebar(); ?>
             
 		</div><!-- /#main-sidebar-container -->         
 
-		<?php get_sidebar( 'alt' ); ?>
+  	<?php get_sidebar( 'alt' ); ?>
 
     </div><!-- /#content -->
 	<?php woo_content_after(); ?>

@@ -22,22 +22,22 @@ get_header();
             <!-- #main Starts -->
             <?php woo_main_before(); ?>
             <div id="main">                       
-<?php
-	woo_loop_before();
-	
-	if (have_posts()) { $count = 0;
-		while (have_posts()) { the_post(); $count++;
-			
-			woo_get_template_part( 'content', get_post_type() ); // Get the post content template file, contextually.
-		}
-	}
-	
-	woo_loop_after();
-?>     
+            <?php
+            	woo_loop_before();
+            	
+            	if (have_posts()) { $count = 0;
+            		while (have_posts()) { the_post(); $count++;
+            			
+            			woo_get_template_part( 'content', get_post_type() ); // Get the post content template file, contextually.
+            		}
+            	}
+            	
+            	woo_loop_after();
+            ?>     
             </div><!-- /#main -->
             <?php woo_main_after(); ?>
     
-            <?php get_sidebar(); ?>
+            <?php // get_sidebar(); ?>
 
 		</div><!-- /#main-sidebar-container -->         
 

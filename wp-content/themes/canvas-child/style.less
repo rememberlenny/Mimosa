@@ -20,6 +20,9 @@ custom.css and it will override the style in this file. You have been warned! :)
 */
 
 @import url("../canvas/style.css");
+@import "css/foundation.less";
+
+
 
 /*-------------------------------------------------------------------------------------------
 
@@ -30,13 +33,6 @@ INDEX:
 1. SETUP
 -1.1 Defaults
 */
-
-.large-4{
-	max-width:32.5%;
-}
-.column{
-	float:left;
-}
 
 img{height: auto !important;}
 
@@ -143,6 +139,7 @@ div#top{background: none; padding-top:1em; position: fixed;}
 div#logo .site-description{
 	display: none !important;
 }
+
 /*
 -2.4 Content
 */
@@ -283,4 +280,42 @@ portfolio .group.portfolio-img img{
 
 /*-------------------------------------------------------------------------------------------*/
 
+body #wrapper{ max-width: 75.4em !important; }
 
+.magazine #loopedSlider a.flex-next { bottom: 45%; }
+.magazine #loopedSlider a.flex-prev { bottom: 45%; left: 15px; }
+ul.slides .content{ display: none; }
+
+#wrapper #header{
+	margin-top: 25px;
+	margin-bottom: 0px;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+
+#main-nav a{ font-size: 18px; color: #6f6f6f; }
+#navigation { 
+	border: none !important;
+	ul.nav { 
+		margin-right: 0px; 
+		a{
+			color: #aaa;
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: 767px){
+	.magazine #loopedSlider a.flex-next { top: auto; }
+	.magazine #loopedSlider a.flex-prev { top: auto; }
+}
+
+.thumbnail-height-limit{ max-height:160px; overflow: hidden; }
+
+.thumb-display h3{ font-size: 16px; color: #6f6f6f; font-weight: 500;}
+
+.thumb-wraps {
+	h2{ margin-bottom: 0; }
+	p{ color: #aaa; }
+}

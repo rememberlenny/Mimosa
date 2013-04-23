@@ -36,7 +36,7 @@
 <?php
 	woo_post_inside_before();	
 	the_title( $title_before, $title_after );
-	woo_post_meta();
+	// woo_post_meta();
 ?>
 	<div class="entry">
 	    <?php
@@ -50,5 +50,5 @@
 </div><!-- /.post -->
 <?php
 	woo_post_after();
-	comments_template();
+	// comments_template();
 ?>

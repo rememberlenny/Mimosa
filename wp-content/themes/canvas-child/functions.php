@@ -44,6 +44,7 @@ function woo_google_webfonts() {
 // Add slider to homepage
 // http://www.woothemes.com/tutorials/add-the-business-slider-to-the-default-wordpress-homepage/?codekitCB=376980235.250927 
 // Display the "Business" slider above the default WordPress homepage.
+
 add_action( 'get_header', 'woo_custom_load_biz_slider', 10 );
  
 function woo_custom_load_biz_slider () {
