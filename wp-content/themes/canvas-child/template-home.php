@@ -28,10 +28,10 @@
             <hr>
           </div>
         </div>
-  <div id="main">
+    <div id="main">
       <div class="fabrication row thumb-wraps">  
         <div class="column large-3">
-          <h2 class="subheader">Fabrication</h2>
+          <a href="<?php echo get_post_type_archive_link( 'fabrication' ); ?>"><h2 class="subheader">Fabrication</h2></a>
 
           <p>A Quick view of our most up-to-date projects.</p>
         </div>
@@ -65,7 +65,7 @@
         <hr>
         <div class="design row thumb-wraps ">
         <div class="column large-3">
-          <h2 class="subheader">Design</h2> 
+          <a href="<?php echo get_post_type_archive_link( 'design' ); ?>"><h2 class="subheader">Design</h2></a> 
           <p>A Quick view of our most up-to-date projects.</p>
         </div>
         <?php 
